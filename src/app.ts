@@ -4,19 +4,13 @@ import type * as streamWeb from 'node:stream/web';
 
 const storage = new Storage({
   credentials: {
-    client_email: process.env.GCP_SERVICE_ACCOUNT_CLIENT_EMAIL,
-    private_key: process.env.GCP_SERVICE_ACCOUNT_PRIVATE_KEY,
+    client_email: process.env.EMAIL,
+    private_key: process.env.KEY,
   },
 });
 
-const bucketName = 'ronin_media';
+const bucketName = 'acme_corp';
 
-/**
- * Uploads the given `ReadableStream` to the Google Cloud Storage Bucket.
- * @param options.body - The media to upload.
- * @param options.fileName - The name of the file with format extension to upload.
- * @param options.contentType - The media's `Content-Type`.
- */
 export const uploadToCloudStorage = async ({
   body,
   fileName,
