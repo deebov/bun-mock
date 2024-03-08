@@ -8,13 +8,7 @@ describe("storage", async () => {
     const mockedFile = jest.fn(() => ({
         createWriteStream: jest.fn().mockImplementation(() => {
             const mockStream = new stream.Writable();
-            console.log("FUUUUUUUUUUUCK");
-            console.log("FUUUUUUUUUUUCK");
-            console.log("FUUUUUUUUUUUCK");
-            console.log("FUUUUUUUUUUUCK");
-            console.log("FUUUUUUUUUUUCK");
-            console.log("FUUUUUUUUUUUCK");
-            console.log("FUUUUUUUUUUUCK");
+            console.log("THE MOCK ACTUALLY WORKS!");
 
             mockStream._write = (chunk, encoding, done) => {
                 const chunkUint8 = new Uint8Array(chunk);
@@ -39,11 +33,7 @@ describe("storage", async () => {
     };
 
     mock.module("@google-cloud/storage", () => {
-        console.log("MAAAAAAAN");
-        console.log("MAAAAAAAN");
-        console.log("MAAAAAAAN");
-        console.log("MAAAAAAAN");
-        console.log("MAAAAAAAN");
+        console.log("THE MOCK HAS BEEN INITIALIZED");
 
         return {
             Storage: jest.fn(() => mockedStorage),
